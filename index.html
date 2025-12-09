@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading RPG - คู่หูเทรดเดอร์</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Trading RPG - เก็บเลเวลเทรดเดอร์</h1>
+        
+        <section class="user-stats">
+            <h2>👤 สถานะเทรดเดอร์</h2>
+            <p><strong>เงินทุนปัจจุบัน:</strong> <span id="currentBalance">$0.00</span></p>
+            <p><strong>เลเวล:</strong> <span id="currentLevel">1</span></p>
+            <p><strong>EXP:</strong> <span id="currentExp">0</span> / <span id="expToNextLevel">1000</span></p>
+            <div class="progress-bar-container">
+                <div id="expProgressBar" class="progress-bar"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="trade-entry">
+            <h2>➕ บันทึกออเดอร์ใหม่ (Trade Entry)</h2>
+            <form id="tradeForm">
+                <label for="pnlInput">กำไร/ขาดทุน (P&L):</label>
+                <input type="number" id="pnlInput" placeholder="ใส่จำนวนกำไร/ขาดทุน ($)" required>
+                
+                <label for="symbolInput">คู่เงิน/สัญลักษณ์:</label>
+                <input type="text" id="symbolInput" placeholder="เช่น EURUSD, BTCUSD" required>
+                
+                <label for="typeInput">ประเภท:</label>
+                <select id="typeInput" required>
+                    <option value="Buy">Buy</option>
+                    <option value="Sell">Sell</option>
+                </select>
+                
+                <button type="submit">บันทึกออเดอร์</button>
+            </form>
+        </section>
+
+        <section class="withdrawal-entry">
+            <h2>➖ ถอนเงิน (Withdrawal)</h2>
+            <form id="withdrawalForm">
+                <label for="withdrawAmount">จำนวนเงินที่ถอน:</label>
+                <input type="number" id="withdrawAmount" placeholder="จำนวนเงินที่ถอน ($)" required>
+                
+                <button type="submit">ถอนเงิน (ลดเลเวล!)</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="trade-history">
+            <h2>📜 ประวัติการเทรด</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>วันที่</th>
+                        <th>Symbol</th>
+                        <th>Type</th>
+                        <th>P&L</th>
+                        <th>EXP ที่ได้รับ</th>
+                    </tr>
+                </thead>
+                <tbody id="historyBody">
+                    </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
